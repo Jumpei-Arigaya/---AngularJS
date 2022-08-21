@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script>
+        const app = angular.module('myApp', []);
+        app.controller('myController', function () {
+            this.members = [
+                { name: 'Tanaka', age: 36 },
+                { name: 'Suzuki', age: 16 },
+                { name: 'Yamada', age: 26 }
+            ];
+        });
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-controller="myController as myCtrl">
+        <ul>
+            <li ng-repeat="m in myCtrl.members|orderBy:'age':true">{{m.name}}{{m.age}}</li>
+        </ul>
+        <div>{{myCtrl.members[0]['name']}}</div>
+        <input type="text" ng-model="serch_word" style="width: 1500px;">
+        <p>{{serch_word}}</p>
+
+    </div>
+
+</body>
+
+</html>

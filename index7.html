@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form name="myForm" novalidate>
+        <div><input type="text" name="text1" ng-model="sampleText" ng-required="true" ng-minlength=3 ng-maxlength=8></div>
+        <div ng-show="myForm.text1.$error.required">必須項目です</div>
+        <div ng-show="myForm.text1.$error.minlength">少なすぎます</div>
+        <div ng-show="myForm.text1.$error.maxlength">長すぎます</div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <title>Document</title>
+    <script>
+        const app = angular.module('myApp', []);
+        app.controller('myController', function() {
+            this.members = [
+                { name: 'Tanaka', age: 36 },
+                { name: 'Suzuki', age: 16 },
+                { name: 'Yamada', age: 26}
+            ]
+        })
+    </script>
+</head>
+<body>
+    <div ng-controller="myController as myCtrl">
+        <span>検索ワード</span>
+        <input type="text" ng-model="searchWord">
+        <ul>
+            <li ng-repeat="member in myCtrl.members|filter:searchWord">名前：{{member.name}}  年齢：{{member.age}}</li>
+        </ul>
+        {{ myCtrl.members[0]['name'] }}  様      
+    </div>
+    
+</body>
+</html>
